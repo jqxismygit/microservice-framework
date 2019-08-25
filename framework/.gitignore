@@ -23,3 +23,5 @@ yarn-error.log*
 
 stats.json
 app_dev.json
+
+package-lock.json

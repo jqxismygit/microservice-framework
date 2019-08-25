@@ -1,16 +1,12 @@
 {
   "name": "framework",
-  "version": "0.1.1",
-  "description": "eCatalog 3.0 framework(web)",
+  "version": "0.0.1",
+  "description": "framework(web)",
   "main": "src/index.js",
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "deploy": "./scripts/deploy.sh"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@island.ivymobi.com:mars/framework.git"
   },
   "keywords": [],
   "author": "",
