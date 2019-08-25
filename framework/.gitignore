@@ -22,6 +22,7 @@ yarn-debug.log*
 yarn-error.log*
 
 stats.json
-app_dev.json
+#这个文件在本地开发的时候最好加入到ignore
+# app_dev.json
 
 package-lock.json

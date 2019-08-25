@@ -1,0 +1,85 @@
+{
+  "framework": "0.1.0",
+  "layout": {
+    "type": "layout",
+    "name": "layout01",
+    "package": {
+      "id": "layout-default@development",
+      "url": "/layout-default/development/pkg.bundle.js"
+    },
+    "config": {}
+  },
+  "config": {},
+  "modules": [
+    {
+      "type": "home",
+      "id": "home",
+      "name": "首页",
+      "package": {
+        "id": "home-default@development",
+        "url": "/home-default/development/pkg.bundle.js"
+      },
+      "router": [
+        {
+          "page": "home",
+          "route": "/"
+        }
+      ],
+      "config": {
+        "general": {
+          "router": {
+            "prefix": "/"
+          }
+        }
+      }
+    },
+    {
+      "type": "first",
+      "id": "first",
+      "name": "第一个模块",
+      "package": {
+        "id": "first-default@development",
+        "url": "/first-default/development/pkg.bundle.js"
+      },
+      "router": [
+        {
+          "page": "pageA",
+          "route": "/first/page"
+        },
+        {
+          "page": "pageB",
+          "route": "/first/page2"
+        }
+      ],
+      "config": {
+        "general": {
+          "router": {
+            "prefix": "/first"
+          }
+        }
+      }
+    },
+    {
+      "type": "second",
+      "id": "second",
+      "name": "第二个模块",
+      "package": {
+        "id": "second-default@development",
+        "url": "/second-default/development/pkg.bundle.js"
+      },
+      "router": [
+        {
+          "page": "pageA",
+          "route": "/second/page"
+        }
+      ],
+      "config": {
+        "general": {
+          "router": {
+            "prefix": "/second"
+          }
+        }
+      }
+    }
+  ]
+}
