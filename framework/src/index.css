@@ -1,0 +1,240 @@
+@import "module-loader.css";
+html {
+  touch-action: manipulation;
+  height: 100%;
+}
+
+* {
+  outline: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  overflow-y: hidden;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 488744 */
+  src: url('//at.alicdn.com/t/font_488744_c185vloirzd.eot');
+  src: url('//at.alicdn.com/t/font_488744_c185vloirzd.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_488744_c185vloirzd.woff') format('woff'),
+  url('//at.alicdn.com/t/font_488744_c185vloirzd.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_488744_c185vloirzd.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont";
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  pointer-events: none;
+  user-select: none;
+}
+
+#app-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.page {
+  background-color: #ddd;
+}
+
+.anix {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(.36, .66, .04, 1);
+}
+
+.SlideIn-appear {
+  transform: translate3d(100%, 0, 0);
+}
+
+.SlideIn-appear.SlideIn-appear-active {
+  transform: translate3d(0, 0, 0);
+  transition: all 450ms ease-out 150ms;
+}
+
+.SlideIn-enter {
+  transform: translate3d(100%, 0, 0);
+}
+
+.SlideIn-enter.SlideIn-enter-active {
+  transform: translate3d(0, 0, 0);
+  transition: all 450ms ease-out 150ms;
+}
+
+.SlideIn-leave {
+  transform: translate3d(0, 0, 0);
+}
+
+.SlideIn-leave.SlideIn-leave-active {
+  position: absolute;
+  width: 100%;
+  transform: translate3d(-100%, 0, 0);
+  transition: all 450ms ease-out 150ms;
+}
+
+.SlideOut-appear {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.SlideOut-appear.SlideOut-appear-active {
+  transform: translate3d(0, 0, 0);
+  transition: all 450ms ease-out 150ms;
+}
+
+.SlideOut-enter {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.SlideOut-enter.SlideOut-enter-active {
+  transform: translate3d(0, 0, 0);
+  transition: all 450ms ease-out 150ms;
+}
+
+.SlideOut-leave {
+  transform: translate3d(0, 0, 0);
+}
+
+.SlideOut-leave.SlideOut-leave-active {
+  position: absolute;
+  width: 100%;
+  transform: translate3d(100%, 0, 0);
+  transition: all 450ms ease-out 150ms;
+}
+
+.module-loader-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #f5f5f5;
+}
+
+.module-loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.module-loader-message {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #818181;
+}
+
+.modal-loader-error {
+  position: absolute;
+  left: 100px;
+  top: 60px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .modal-loader-error {
+    left: 10px;
+    top: 20px;
+  }
+}
+
+.modal-loader-error-title {
+  padding: 20px 0;
+  font-size: 22px;
+  color: #414141;
+}
+
+.modal-loader-error-message {
+  line-height: 1.5;
+  font-size: 14px;
+  color: #fb0d1b;
+}
+
+.modal-loader-error-btn {
+  margin-top: 20px;
+  padding: 0 20px;
+  display: inline-block;
+  line-height: 30px;
+  background-color: #44B549;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.empty-page {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 1px solid #f5f5f5;
+}
+
+.tenant-404 {
+  position: absolute;
+  left: 100px;
+  top: 60px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .tenant-404 {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    text-align: center;
+  }
+}
+
+.tenant-404-icon {
+  color: #434e59;
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 72px;
+  margin-bottom: 24px;
+  font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.tenant-404-msg {
+  color: rgba(0, 0, 0, .45);
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 16px;
+  white-space: nowrap;
+}
+
+.tenant-404-btn {
+  padding: 0 20px;
+  display: inline-block;
+  line-height: 30px;
+  background-color: #44B549;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 300;
+}

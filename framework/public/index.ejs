@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>这是一个微服务框架模板</title>
+    <% if (NODE_ENV === 'development') { %>
+      <link rel="stylesheet" href="/_modules/layout-default/development/pkg.bundle.css" />
+    <% } %>
+    <style>
+      #global-loading {
+
+      }
+    </style>
+    <script>
+      window.ts_init = new Date().getTime();
+      window.API_URL = '<%= API_HOST %>';
+
+      var matchIE = navigator.userAgent.match(/MSIE\s(\d+)/i)
+      var unsupportBrowser = matchIE && matchIE[1] && matchIE[1] < 11
+
+      if (unsupportBrowser) {
+        window.location.href = '/upgrade.html'
+      }
+
+      window.eCatalog = {
+        app: null,
+        packages: []
+      }
+      window.loadPackage = function(id) {
+        return function(module) {
+          eCatalog.packages[id] = module
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="global-loading"></div>
+    <div id="root"></div>
+    <script src="/cordova.js" defer></script>
+  </body>
+  <% if (NODE_ENV === 'development') { %>
+    <script src="/_modules/layout-default/development/pkg.bundle.js"></script>
+  <% } else { %>
+    <!-- <script src="https://cdn.ravenjs.com/3.24.2/raven.min.js" crossorigin="anonymous"></script> -->
+    <script src="raven.min.js"></script>
+    <script>
+    try{
+      Raven.config('https://764ad9b0aaf14fddbc78975f0dc94cf2@sentry.io/1197340').install()
+      Raven.captureMessage('onload', {
+        extra: {
+          duration: (new Date().getTime() - ts_init) / 1000,
+        },
+        level: 'info'
+      });
+    } catch(e) {}
+    </script>
+  <% } %>
+  <script>
+    !unsupportBrowser && window.bootstrap(eCatalog.domain).then(function() {
+      try {
+        $('#global-loading').remove()
+      } catch (e) {}
+
+      window.Raven && Raven.captureMessage('onready', {
+        extra: {
+          duration: ((+new Date) - ts_init) / 1000
+        },
+        level: 'info'
+      });
+    }).catch(function(err) {
+      console.log('\n❌ Catch error')
+      console.error(err)
+      window.Raven && Raven.captureException(err)
+
+      if (err.response && err.response.status) {
+        if (err.response.status === 401) {
+          window.location.reload()
+        }
+
+        return false
+      }
+
+      var message = err.message.replace(/&/g,"&amp;")
+         .replace(/</g,"&lt;")
+         .replace(/>/g,"&gt;")
+         .replace(/ /g,"&nbsp;")
+         .replace(/\'/g,"&#39;")
+         .replace(/\"/g,"&quot;")
+         .replace(/\s/g, '<br />')
+
+      document.body.innerHTML = '\
+        <div class="empty-page">\
+          <div class="modal-loader-error">\
+            <div class="modal-loader-error-title">出错了</div>\
+            <div class="modal-loader-error-message">' + message + '</div>\
+            <a class="modal-loader-error-btn" onClick="javascript:location.reload()">重试</a>\
+          </div>\
+        </div>\
+      '
+    })
+  </script>
+</html>

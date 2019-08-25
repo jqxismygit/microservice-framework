@@ -1,0 +1,14 @@
+{
+  "name": "first-default",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "clear": "rm -rf ./node_modules dist",
+    "build": "../../scripts/build.js",
+    "qc": "../../scripts/qc.sh",
+    "deploy": "../../scripts/deploy.sh"
+  },
+  "private": "true",
+  "dependencies": {}
+}

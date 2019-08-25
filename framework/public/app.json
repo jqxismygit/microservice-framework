@@ -1,0 +1,35 @@
+{
+  "framework": "0.1.0",
+  "layout": {
+    "type": "layout",
+    "name": "layout01",
+    "package": {
+      "id": "layout-default@0.0.0",
+      "url": "/layout-default/0.0.0/pkg.bundle.js"
+    },
+    "config": {}
+  },
+  "config": {
+  },
+  "modules": [{
+      "type": "home",
+      "id": "home",
+      "name": "首页",
+      "package": {
+        "id": "home-default@0.0.0",
+        "url": "/home-default/0.0.0/pkg.bundle.js"
+      },
+      "router": [{
+        "page": "pageA",
+        "route": "/"
+      }],
+      "config": {
+        "general": {
+          "router": {
+            "prefix": "/"
+          }
+        }
+      }
+    }
+  ]
+}

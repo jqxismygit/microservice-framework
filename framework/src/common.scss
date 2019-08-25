@@ -1,0 +1,33 @@
+// .page {
+//   display: flex;
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 0;
+//   bottom: 0;
+//   box-sizing: border-box;
+//   background-color: #dbdbdb;
+//   background: url($PUBLIC_PATH + '/landing_bg@2x.jpg');
+//   background-size: cover;
+//   background-position: 50% 50%;
+// }
+
+// .side {
+//   position: relative;
+//   width: 236px;
+//   flex: 0 0 auto;
+//   height: 100%;
+//   z-index: 8;
+//   // transition: all 400ms cubic-bezier(0.72, 0.01, 0.61, 0.99);
+//   transition: all 400ms;
+// }
+
+// .main {
+//   @media (max-width: 768px) {
+//     width: 100%;
+//     min-width: 100%;
+//   }
+//   @media (min-width: 768px) {
+//     flex: 1 1 auto;
+//   }
+// }
