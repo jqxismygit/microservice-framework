@@ -1,0 +1,23 @@
+{
+  "commands": {
+    "bootstrap": {
+      "hoist": true
+    },
+    "publish": {
+      "allowBranch": "master",
+      "message": "chore(release): publish %s"
+    }
+  },
+  "_registry": "http://10.0.6.1:5555",
+  "version": "independent",
+  "publishConfig": {
+    "ignore": [
+      "node_modules",
+      "*.log"
+    ]
+  },
+  "lerna": "2.5.1",
+  "packages": [
+    "packages/*"
+  ]
+}
